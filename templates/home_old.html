@@ -1,0 +1,17 @@
+{% extends 'main.html' %}
+
+{% block content %}
+<style>
+    .home-container{
+        display: grid;
+        grid-template-columns: 1fr 3fr 1fr;
+    }
+</style>
+<hr>
+<div class = "home-container">
+    {% include 'topics_component.html' %}
+    {% include 'feed_component.html' %}
+    {% include 'activity_component.html' %}
+
+</div>
+{% endblock content %}
