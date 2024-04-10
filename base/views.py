@@ -20,11 +20,11 @@ from .forms import RoomForm
 def loginPage(request):
     page = "login"
     if request.method == "POST":
-        username = request.POST.get('username')
+        username = request.POST.get('username').lower()
         password = request.POST.get('password')
 
         try:
-            user = User.objects.get(username=username).lower()
+            user = User.objects.get(username=username)
         except:
             messages.error(request, "Invalid Username")
 
