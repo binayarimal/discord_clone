@@ -1,4 +1,5 @@
 {% extends 'main.html' %}
+{% load static %}
 
 {% block content %}
     <main class="profile-page layout layout--2">
@@ -82,7 +83,7 @@
                 <p>Hosted By</p>
                 <a href="{% url 'user-profile' room.host.id %}" class="room__author">
                   <div class="avatar avatar--small">
-                    <img src="https://randomuser.me/api/portraits/men/37.jpg" />
+                    <img src="{% static 'images/avatar.svg' %}" />
                   </div>
                   <span>{{room.host.username}}</span>
                 </a>

@@ -106,6 +106,7 @@ def room(request, pk):
 def createRoom(request):
     form = RoomForm()
     topics = Topic.objects.all()
+
     if request.method == 'POST':
         topic_name = request.POST.get('topic')
         topic, created = Topic.objects.get_or_create(name=topic_name)
@@ -126,6 +127,7 @@ def updateRoom(request, pk):
     form = RoomForm(instance=room)
     topics = Topic.objects.all()
 
+
     if room.host != request.user:
         return HttpResponse('You donot have permission to update room')
 
@@ -140,7 +142,7 @@ def updateRoom(request, pk):
         return redirect('home')
 
 
-    return render(request, 'room_form.html', {'form':form, 'topics':topics})
+    return render(request, 'room_form.html', {'form':form, 'topics':topics, 'room':room})
 
 @login_required(login_url='login')
 def deleteMessage(request, pk):
